@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHREE WIN PENAL SUPREME V15</title>
+<style>
+:root{--neon:#00ff41;--danger:#ff003c;--gold:#ffea00;--bg:#050505;--card-bg:rgba(15,23,42,0.85);--border-glow:rgba(0,255,65,0.35);}
+*{box-sizing:border-box;}
+body{background:var(--bg);color:#fff;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;user-select:none;overflow-x:hidden;background-image:radial-gradient(circle at 50% 10%,rgba(0,255,65,0.1),transparent 60%);min-height:100vh;}
+.header-container{text-align:center;padding:15px 10px 5px;}
+.zigzag-name{font-size:28px;font-weight:900;letter-spacing:3px;color:#fff;text-transform:uppercase;text-shadow:2px 2px var(--danger),-2px -2px var(--neon),0 0 15px var(--neon);animation:glitch 2s infinite;}
+@keyframes glitch{0%,100%{transform:skew(0deg);}20%{transform:skew(-2deg);text-shadow:2px 2px var(--neon),-2px -2px var(--danger);}40%{transform:skew(2deg);}}
+.tab-container{display:flex;justify-content:center;gap:10px;margin:10px auto;max-width:420px;padding:0 10px;}
+.tab-btn{flex:1;background:rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.2);color:#aaa;padding:10px;font-size:11px;font-weight:bold;border-radius:10px;cursor:pointer;transition:all 0.3s ease;}
+.tab-btn.active{background:linear-gradient(135deg,rgba(0,255,65,0.25),rgba(0,163,46,0.15));border-color:var(--neon);color:var(--neon);box-shadow:0 4px 15px rgba(0,255,65,0.4),0 0 0 1px rgba(0,255,65,0.3);}
+.glass-box{max-width:420px;margin:0 auto 20px;background:var(--card-bg);border:1px solid var(--border-glow);border-radius:20px;padding:20px;backdrop-filter:blur(15px);box-shadow:0 8px 32px 0 rgba(0,0,0,0.8),0 0 20px rgba(0,255,65,0.15);text-align:center;}
+.pred-val{font-size:42px;font-weight:900;margin:6px 0;text-shadow:0 0 20px var(--neon);letter-spacing:2px;}
+.num-box{color:var(--gold);font-size:13px;font-weight:bold;border:1px dashed var(--gold);padding:8px;border-radius:10px;background:rgba(255,234,0,0.05);margin-bottom:10px;}
+.timer-box{background:rgba(0,255,65,0.08);border:1px solid var(--neon);color:var(--neon);font-size:16px;font-weight:bold;padding:6px;border-radius:8px;margin-bottom:12px;letter-spacing:1px;}
+.level-badge{background:rgba(255,234,0,0.2);color:var(--gold);border:1px solid var(--gold);font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:8px;}
+.stats-grid{display:table;width:100%;margin-bottom:12px;background:rgba(0,0,0,0.5);border-radius:10px;padding:6px 0;border:1px solid rgba(255,255,255,0.08);}
+.stat-item{display:table-cell;width:33.33%;text-align:center;}
+.stat-val{font-size:15px;font-weight:bold;color:var(--gold);}
+.stat-lbl{font-size:8px;color:#aaa;text-transform:uppercase;margin-top:2px;}
+table{width:100%;margin-top:10px;border-collapse:collapse;font-size:11px;}
+th{color:#888;border-bottom:1px solid #333;padding:6px 4px;text-transform:uppercase;font-size:9px;}
+td{padding:6px 4px;border-bottom:1px solid #1a1a1a;text-align:center;}
+.win{color:var(--neon);font-weight:bold;}
+.loss{color:var(--danger);font-weight:bold;}
+.badge{display:inline-block;padding:2px 6px;border-radius:4px;font-size:9px;font-weight:bold;}
+.badge-big{background:rgba(0,255,65,0.2);color:var(--neon);border:1px solid var(--neon);}
+.badge-small{background:rgba(255,0,60,0.2);color:var(--danger);border:1px solid var(--danger);}
+#loginPage{max-width:380px;margin:60px auto;background:linear-gradient(145deg,rgba(10,25,18,0.95),rgba(5,5,5,0.95));border:1px solid var(--neon);border-radius:20px;padding:30px 25px;backdrop-filter:blur(15px);box-shadow:0 0 15px rgba(0,255,65,0.35),0 0 35px rgba(0,255,65,0.15),inset 0 0 25px rgba(0,255,65,0.06);text-align:center;animation:softPulse 3s ease-in-out infinite alternate;}
+@keyframes softPulse{from{box-shadow:0 0 15px rgba(0,255,65,0.35),0 0 35px rgba(0,255,65,0.15),inset 0 0 25px rgba(0,255,65,0.06);}to{box-shadow:0 0 25px rgba(0,255,65,0.55),0 0 55px rgba(0,255,65,0.25),inset 0 0 35px rgba(0,255,65,0.1);}}
+#loginPage h2{color:var(--neon);margin:0 0 5px;font-size:20px;letter-spacing:2px;text-shadow:0 0 8px var(--neon),0 0 18px rgba(0,255,65,0.6);}
+#loginPage p{color:#888;font-size:11px;margin:0 0 20px;letter-spacing:1px;}
+.inp{width:100%;padding:12px;margin:8px 0;background:rgba(0,0,0,0.7);border:1px solid rgba(0,255,65,0.4);border-radius:10px;color:#fff;font-size:14px;outline:none;transition:0.3s;}
+.inp:focus{border-color:var(--neon);box-shadow:0 0 12px var(--neon),inset 0 0 8px rgba(0,255,65,0.1);}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:14px;margin-top:10px;background:linear-gradient(135deg,#00ff41,#00a32e);border:none;border-radius:12px;color:#000;font-weight:900;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,255,65,0.5),0 0 0 1px rgba(0,255,65,0.3);position:relative;overflow:hidden;}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);transform:translateX(-100%);transition:transform 0.6s;}
+.btn-primary:hover::before{transform:translateX(100%);}
+.btn-primary:hover{box-shadow:0 6px 25px rgba(0,255,65,0.8),0 0 0 1px rgba(0,255,65,0.5);transform:translateY(-2px);}
+.err{color:var(--danger);font-size:12px;margin-top:8px;min-height:16px;}
+.getpass-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;margin-top:12px;background:linear-gradient(135deg,#00aaff,#0066cc);border:none;border-radius:12px;color:#fff;font-weight:900;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,170,255,0.5),0 0 0 1px rgba(0,170,255,0.3);position:relative;overflow:hidden;}
+.getpass-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);transform:translateX(-100%);transition:transform 0.6s;}
+.getpass-btn:hover::before{transform:translateX(100%);}
+.getpass-btn:hover{box-shadow:0 6px 25px rgba(0,170,255,0.8),0 0 0 1px rgba(0,170,255,0.5);transform:translateY(-2px);}
+.getpass-btn svg{width:18px;height:18px;fill:#fff;}
+.tg-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;max-width:420px;margin:0 auto 25px;padding:15px;background:linear-gradient(135deg,#00aaff,#0066cc);border:none;border-radius:14px;color:#fff;font-weight:900;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:0 6px 20px rgba(0,170,255,0.5),0 0 0 1px rgba(0,170,255,0.3);transition:all 0.3s ease;position:relative;overflow:hidden;}
+.tg-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);transform:translateX(-100%);transition:transform 0.6s;}
+.tg-btn:hover::before{transform:translateX(100%);}
+.tg-btn:hover{box-shadow:0 8px 30px rgba(0,170,255,0.8),0 0 0 1px rgba(0,170,255,0.5);transform:translateY(-2px);}
+.tg-btn svg{width:20px;height:20px;fill:#fff;}
+#maintPage{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;padding:20px;}
+#maintPage.show{display:flex;}
+.update-card{max-width:400px;width:100%;background:linear-gradient(145deg,rgba(10,25,18,0.98),rgba(5,5,5,0.98));border:1px solid var(--neon);border-radius:20px;padding:35px 25px;text-align:center;box-shadow:0 0 20px rgba(0,255,65,0.4),0 0 50px rgba(0,255,65,0.18),inset 0 0 30px rgba(0,255,65,0.06);animation:popIn 0.4s ease,cardPulse 3s ease-in-out infinite alternate;}
+@keyframes popIn{from{transform:scale(0.8);opacity:0;}to{transform:scale(1);opacity:1;}}
+@keyframes cardPulse{from{box-shadow:0 0 20px rgba(0,255,65,0.4),0 0 50px rgba(0,255,65,0.18),inset 0 0 30px rgba(0,255,65,0.06);}to{box-shadow:0 0 30px rgba(0,255,65,0.6),0 0 70px rgba(0,255,65,0.3),inset 0 0 40px rgba(0,255,65,0.1);}}
+.update-icon{font-size:50px;margin-bottom:10px;animation:bounce 2s infinite;filter:drop-shadow(0 0 12px var(--neon));}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.update-title{font-size:20px;font-weight:900;color:var(--neon);text-shadow:0 0 10px var(--neon),0 0 25px rgba(0,255,65,0.6);letter-spacing:1px;margin:10px 0;line-height:1.3;word-break:break-word;}
+.update-sub{color:#aaa;font-size:12px;margin-bottom:22px;line-height:1.5;}
+.update-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 40px;background:linear-gradient(135deg,#00ff41,#00a32e);border:none;border-radius:14px;color:#000;font-weight:900;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:0 6px 20px rgba(0,255,65,0.6),0 0 0 1px rgba(0,255,65,0.3);transition:all 0.3s ease;position:relative;overflow:hidden;}
+.update-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);transform:translateX(-100%);transition:transform 0.6s;}
+.update-btn:hover::before{transform:translateX(100%);}
+.update-btn:hover{box-shadow:0 8px 30px rgba(0,255,65,0.9),0 0 0 1px rgba(0,255,65,0.5);transform:translateY(-2px);}
+.hidden{display:none !important;}
+.loading{color:var(--neon);font-size:12px;padding:20px;text-align:center;}
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<div id="loginPage">
+    <h2 id="loginTitle">🔐 SHREE WIN PENAL</h2>
+    <p id="loginSub">SUPREME V15 • SECURE ACCESS</p>
+    <input type="text" id="loginUser" class="inp" placeholder="Username" autocomplete="off">
+    <input type="password" id="loginPass" class="inp" placeholder="Password">
+    <button class="btn-primary" onclick="window.__doLogin()">LOGIN</button>
+    <a href="#" id="getPassBtn" class="getpass-btn" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M9.04 15.47l-.38 5.34c.54 0 .78-.24 1.07-.53l2.56-2.45 5.3 3.88c.97.54 1.66.26 1.92-.9l3.48-16.3c.31-1.45-.53-2.02-1.48-1.67L1.4 9.94c-1.42.56-1.4 1.34-.24 1.7l5.22 1.63L18.5 5.6c.56-.37 1.08-.17.66.2z"/></svg>
+        GET PASSWORD
+    </a>
+    <div class="err" id="loginErr"></div>
+</div>
+
+<div id="maintPage">
+    <div class="update-card">
+        <div class="update-icon">🚀</div>
+        <div class="update-title" id="updTitle">UPDATE AVAILABLE</div>
+        <div class="update-sub" id="updSub">A new update is available. Click below to continue.</div>
+        <a href="#" id="updBtn" class="update-btn" target="_blank">UPDATE NOW</a>
+    </div>
+</div>
+
+<div id="mainApp" class="hidden">
+    <div class="header-container">
+        <div class="zigzag-name" id="appTitle">SHREE WIN PENAL</div>
+        <div id="appSub" style="color:var(--gold);font-size:9px;letter-spacing:3px;margin-top:4px;font-weight:bold;">SUPREME V15 • 30S & 1M ENGINE</div>
+    </div>
+
+    <div class="tab-container">
+        <button class="tab-btn" id="btn30s" onclick="window.__switchGame('30s')">WINGO 30 SEC</button>
+        <button class="tab-btn active" id="btn1m" onclick="window.__switchGame('1m')">WINGO 1 MIN</button>
+    </div>
+
+    <div id="appPage" class="glass-box">
+        <div style="color:#aaa;font-size:11px;font-weight:600;" id="pID">PERIOD: CALCULATING...</div>
+        <div style="margin-top:8px;"><span class="level-badge" id="levelInfo">LEVEL: 1 (NORMAL)</span></div>
+        <div class="timer-box" id="timerDisplay">TIME LEFT: --:--</div>
+        <div class="pred-val" id="pRes">WAITING</div>
+        <div class="num-box" id="pOpps">ANALYZING TRENDS...</div>
+        <div class="stats-grid">
+            <div class="stat-item"><div class="stat-val" id="totalWins" style="color:var(--neon);">0</div><div class="stat-lbl">VICTORY</div></div>
+            <div class="stat-item"><div class="stat-val" id="totalLosses" style="color:var(--danger);">0</div><div class="stat-lbl">LOSSES</div></div>
+            <div class="stat-item"><div class="stat-val" id="winRate" style="color:var(--gold);">100%</div><div class="stat-lbl">ACCURACY</div></div>
+        </div>
+        <table>
+            <thead><tr><th>PERIOD</th><th>PRED</th><th>RESULT</th><th>STATUS</th></tr></thead>
+            <tbody id="logs"></tbody>
+        </table>
+    </div>
+
+    <a href="#" id="tgJoinBtn" class="tg-btn" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M9.04 15.47l-.38 5.34c.54 0 .78-.24 1.07-.53l2.56-2.45 5.3 3.88c.97.54 1.66.26 1.92-.9l3.48-16.3c.31-1.45-.53-2.02-1.48-1.67L1.4 9.94c-1.42.56-1.4 1.34-.24 1.7l5.22 1.63L18.5 5.6c.56-.37 1.08-.17.66.2z"/></svg>
+        JOIN OUR TELEGRAM
+    </a>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, get, onValue }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCydAfEeOejg2tqw-knUH8Ss_xwP-7AX78",
+  authDomain: "ninja-mods-d1ed9.firebaseapp.com",
+  databaseURL: "https://ninja-mods-d1ed9-default-rtdb.firebaseio.com",
+  projectId: "ninja-mods-d1ed9",
+  storageBucket: "ninja-mods-d1ed9.firebasestorage.app",
+  messagingSenderId: "372735566281",
+  appId: "1:372735566281:web:be780d624640dacffac818",
+  measurementId: "G-0QYQKJF7BJ"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const BIG_POOL=[5,6,7,8,9];
+const SMALL_POOL=[0,1,2,3,4];
+const apiEndpoints={
+  '30s':'https://draw.ar-lottery01.com/WinGo/WinGo_30S/GetHistoryIssuePage.json',
+  '1m':'https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json'
+};
+
+let currentGame='1m';
+let currentPrediction=null,currentNumbers=[],currentLevel=1,lastProcessedPeriod=null;
+let winsCount=0,lossCount=0,timerInterval=null,dataInterval=null,loggedUser=null;
+let SETTINGS_CACHE = null;
+
+const DEFAULT_SETTINGS = {
+  maintenance:false, telegram:'', getPassLink:'',
+  maintTitle:'', maintMsg:'', maintLink:'',
+  loginName:'SHREE WIN PENAL', loginSub:'SUPREME V15 • SECURE ACCESS',
+  appName:'SHREE WIN PENAL', appSub:'SUPREME V15 • 30S & 1M ENGINE'
+};
+
+function applySettings(s){
+  SETTINGS_CACHE = s;
+  document.getElementById('tgJoinBtn').href = s.telegram || '#';
+  document.getElementById('getPassBtn').href = s.getPassLink || s.telegram || '#';
+  document.getElementById('loginTitle').textContent = '🔐 ' + (s.loginName || 'SHREE WIN PENAL');
+  document.getElementById('loginSub').textContent = s.loginSub || 'SUPREME V15 • SECURE ACCESS';
+  document.getElementById('appTitle').textContent = s.appName || 'SHREE WIN PENAL';
+  document.getElementById('appSub').textContent = s.appSub || 'SUPREME V15 • 30S & 1M ENGINE';
+  if(s.maintenance) showMaint(s);
+}
+
+function showMaint(s){
+  document.getElementById('loginPage').style.display='none';
+  document.getElementById('mainApp').classList.add('hidden');
+  document.getElementById('updTitle').textContent = s.maintTitle || '🚧 MAINTENANCE';
+  document.getElementById('updSub').textContent = s.maintMsg || 'System is under maintenance. Please wait for the update.';
+  document.getElementById('updBtn').href = s.maintLink || '#';
+  document.getElementById('maintPage').classList.add('show');
+}
+
+// live settings
+onValue(ref(db,'settings'), (snap)=>{
+  const v = snap.val() || {};
+  const s = { ...DEFAULT_SETTINGS, ...v };
+  applySettings(s);
+}, (err)=>console.error('settings read error', err));
+
+// ---------- login ----------
+async function doLogin(){
+  const name = document.getElementById('loginUser').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  const err = document.getElementById('loginErr');
+  err.textContent = '';
+
+  if(!name || !pass){ err.textContent='Enter username and password'; return; }
+  if(SETTINGS_CACHE && SETTINGS_CACHE.maintenance){ showMaint(SETTINGS_CACHE); return; }
+
+  try{
+    const snap = await get(ref(db, 'users/' + name));
+    if(!snap.exists()){ err.textContent='User not found'; return; }
+    const u = snap.val();
+    if(u.banned){ err.textContent='🚫 Your account is banned'; return; }
+    if(u.pass !== pass){ err.textContent='Wrong password'; return; }
+    if(u.expiry && Date.now() > u.expiry){ err.textContent='⏰ Your access has expired'; return; }
+    enterApp(name);
+  }catch(e){
+    err.textContent = 'Login error: ' + e.message;
+  }
+}
+window.__doLogin = doLogin;
+
+function enterApp(name){
+  loggedUser = name;
+  document.getElementById('loginPage').style.display='none';
+  document.getElementById('mainApp').classList.remove('hidden');
+  initEngine();
+}
+
+function initEngine(){
+  fetchData();
+  dataInterval = setInterval(fetchData, 2000);
+  startCountdownTimer();
+}
+
+function switchGame(mode){
+  if(currentGame===mode) return;
+  currentGame=mode; lastProcessedPeriod=null; currentPrediction=null; currentLevel=1;
+  winsCount=0; lossCount=0;
+  document.getElementById('logs').innerHTML='';
+  document.getElementById('btn30s').classList.toggle('active', mode==='30s');
+  document.getElementById('btn1m').classList.toggle('active', mode==='1m');
+  updateStats();
+  fetchData();
+}
+window.__switchGame = switchGame;
+
+function calculateBasePrediction(history){
+  if(!history || history.length<5) return Math.random()>0.5?"BIG":"SMALL";
+  let bigs=0, smalls=0;
+  for(let i=0;i<Math.min(10,history.length);i++){
+    const num=parseInt(history[i].number);
+    const weight=(10-i);
+    if(num>=5) bigs+=weight; else smalls+=weight;
+  }
+  const last3=history.slice(0,3).map(x=> parseInt(x.number)>=5?"BIG":"SMALL");
+  if(last3[0]===last3[1] && last3[1]===last3[2]) return last3[0]==="BIG"?"SMALL":"BIG";
+  return bigs>=smalls?"BIG":"SMALL";
+}
+
+function generateNumbers(prediction){
+  const primaryPool   = prediction==="BIG"?BIG_POOL:SMALL_POOL;
+  const secondaryPool = prediction==="BIG"?SMALL_POOL:BIG_POOL;
+  const n1=primaryPool[Math.floor(Math.random()*primaryPool.length)];
+  const n2=secondaryPool[Math.floor(Math.random()*secondaryPool.length)];
+  return [n1,n2].sort((a,b)=>a-b);
+}
+
+function startCountdownTimer(){
+  if(timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(()=>{
+    const now=new Date();
+    const totalSeconds=now.getMinutes()*60+now.getSeconds();
+    const remaining = currentGame==='1m' ? 60-(totalSeconds%60) : 30-(totalSeconds%30);
+    const secStr = remaining<10?"0"+remaining:remaining;
+    document.getElementById('timerDisplay').innerText='TIME LEFT: 00:'+secStr;
+  },1000);
+}
+
+async function fetchData(){
+  try{
+    const res = await fetch(apiEndpoints[currentGame]);
+    const json = await res.json();
+    if(!json || !json.data || !json.data.list) return;
+    const list = json.data.list;
+    const latest = list[0];
+    const currentPeriod = (BigInt(latest.issueNumber)+1n).toString();
+
+    if(lastProcessedPeriod !== latest.issueNumber){
+      if(lastProcessedPeriod && currentPrediction){
+        const actualNum = parseInt(latest.number);
+        const actualSize = actualNum>=5?"BIG":"SMALL";
+        const isWin = (currentPrediction===actualSize) || currentNumbers.includes(actualNum);
+        if(isWin){ winsCount++; currentLevel=1; } else { lossCount++; currentLevel = currentLevel===1?2:1; }
+        updateStats();
+        const row = '<tr><td>'+latest.issueNumber.slice(-4)+'</td><td><span class="badge '+(currentPrediction==='BIG'?'badge-big':'badge-small')+'">'+currentPrediction+'</span></td><td><b style="color:#fff;">'+actualNum+'</b> ('+actualSize+')</td><td class="'+(isWin?'win':'loss')+'">'+(isWin?'VICTORY💜':'LOSSES💔')+'</td></tr>';
+        document.getElementById('logs').innerHTML = row + document.getElementById('logs').innerHTML;
+      }
+      const basePred = calculateBasePrediction(list);
+      if(currentLevel===2 && currentPrediction){ currentPrediction = currentPrediction==="BIG"?"SMALL":"BIG"; }
+      else { currentPrediction = basePred; }
+      currentNumbers = generateNumbers(currentPrediction);
+      lastProcessedPeriod = latest.issueNumber;
+    }
+
+    document.getElementById('pID').innerText = "NEXT PERIOD: " + currentPeriod;
+    document.getElementById('pRes').innerText = currentPrediction || "SYNCING...";
+    document.getElementById('pOpps').innerText = "2-LEVEL NUMBERS: " + (currentNumbers.length ? currentNumbers.join(" | ") : "ANALYZING...");
+    const lvl = document.getElementById('levelInfo');
+    if(currentLevel===1){ lvl.innerText="LEVEL: 1 (PRIMARY)"; lvl.style.borderColor="var(--gold)"; lvl.style.color="var(--gold)"; }
+    else { lvl.innerText="LEVEL: 2 (HIGH ACCURACY BOOST)"; lvl.style.borderColor="var(--neon)"; lvl.style.color="var(--neon)"; }
+  }catch(e){ console.log("Fetch waiting...", e); }
+}
+
+function updateStats(){
+  document.getElementById('totalWins').innerText = winsCount;
+  document.getElementById('totalLosses').innerText = lossCount;
+  const total = winsCount + lossCount;
+  document.getElementById('winRate').innerText = (total>0 ? Math.round(winsCount/total*100) : 100) + "%";
+}
+</script>
+</body>
+</html>
